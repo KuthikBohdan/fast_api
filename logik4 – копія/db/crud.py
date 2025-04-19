@@ -4,7 +4,7 @@ from .import schemas
 from .models import Book, Author, User
 
 def check_user(login:str, password:str, db: Session):
-    user = db.query(Book).filter(User.login, User.password == password)
+    user = db.query(User).filter(User.login == login, User.password == password).first()
     return user
 
 
